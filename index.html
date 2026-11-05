@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>jade | Developer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="profile-card">
+
+        <img src="pfp.png" alt="Profile Picture" class="pfp">
+
+        <h1>jade</h1>
+        <p class="role">Independent Developer</p>
+
+        <p class="bio">
+            Developer focused on building practical software,
+            exploring new technologies, and creating clean,
+            functional digital experiences.
+            Interested in application development, web technologies,
+            and open-source projects.
+        </p>
+
+        <div class="divider"></div>
+
+        <h2>Developer Statistics</h2>
+
+        <div class="stats">
+            <img
+                src="https://github-readme-stats.vercel.app/api?username=afrige&show_icons=true&hide_border=true&theme=transparent&title_color=ffffff&text_color=aaaaaa&icon_color=ffffff"
+                alt="GitHub Statistics"
+            >
+
+            <img
+                src="https://github-readme-stats.vercel.app/api/top-langs/?username=afrige&layout=compact&hide_border=true&theme=transparent&title_color=ffffff&text_color=aaaaaa"
+                alt="Most Used Languages"
+            >
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="hosting-timer">
+            <span class="timer-label">
+            <span id="timer">00:00:00</span>
+            <span class="timer-description">
+        </div>
+
+        <div class="divider"></div>
+
+        <footer>
+            <a href="https://github.com/YOUR_GITHUB_USERNAME">GitHub</a>
+            <span>© 2026 jade</span>
+        </footer>
+
+    </main>
+
+    <script>
+        // Set your actual website launch date and time.
+        const hostingStart = new Date("2026-11-05T00:00:00").getTime();
+
+        function updateTimer() {
+            const elapsed = Math.max(
+                0,
+                Math.floor((Date.now() - hostingStart) / 1000)
+            );
+
+            const hours = Math.floor(elapsed / 3600);
+            const minutes = Math.floor((elapsed % 3600) / 60);
+            const seconds = elapsed % 60;
+
+            document.getElementById("timer").textContent =
+                String(hours).padStart(2, "0") + ":" +
+                String(minutes).padStart(2, "0") + ":" +
+                String(seconds).padStart(2, "0");
+        }
+
+        updateTimer();
+        setInterval(updateTimer, 1000);
+    </script>
+
+</body>
+</html>
