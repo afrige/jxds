@@ -1,20 +1,26 @@
-/* ==============================
-   CUSTOMIZATION — CHANGE THESE
-================================ */
+/* ============================
+   CUSTOMIZATION
+============================ */
 
 :root {
     --background: #111111;
-    --text-color: #ffffff;
-    --timer-color: #ff3333;
+    --card-background: #191919;
 
+    --text-color: #ffffff;
+    --bio-color: #ffffff;
+
+    --timer-color: #ff3333;
+    --border-color: #303030;
+
+    --card-width: 420px;
     --pfp-size: 110px;
-    --top-spacing: 80px;
+
     --font: Arial, sans-serif;
 }
 
-/* ==============================
-   MAIN WEBSITE
-================================ */
+/* ============================
+   GLOBAL
+============================ */
 
 * {
     margin: 0;
@@ -26,34 +32,104 @@ body {
     min-height: 100vh;
     background: var(--background);
     font-family: var(--font);
+    color: var(--text-color);
+
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding-top: var(--top-spacing);
-    color: var(--text-color);
+
+    padding: 80px 20px;
 }
 
-/* ==============================
+/* ============================
+   PROFILE CARD
+============================ */
+
+.profile-card {
+    width: 100%;
+    max-width: var(--card-width);
+
+    background: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+
+    padding: 35px 28px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+/* ============================
    PROFILE PICTURE
-================================ */
+============================ */
 
 .pfp {
     width: var(--pfp-size);
     height: var(--pfp-size);
+
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 15px;
+
+    margin-bottom: 16px;
 }
 
-/* ==============================
+/* ============================
+   USERNAME
+============================ */
+
+h1 {
+    color: var(--text-color);
+    font-size: 27px;
+    font-weight: 600;
+
+    margin-bottom: 9px;
+}
+
+/* ============================
+   BIO — 75% OPACITY
+============================ */
+
+.bio {
+    color: var(--bio-color);
+    opacity: 0.75;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    max-width: 330px;
+}
+
+/* ============================
    HOSTING TIMER
-================================ */
+============================ */
 
 .hosting-timer {
+    margin-top: 22px;
+}
+
+#timer {
     color: var(--timer-color);
-    font-size: 18px;
-    font-weight: bold;
+
     font-family: monospace;
-    letter-spacing: 2px;
-    margin-top: 15px;
+    font-size: 25px;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+}
+
+/* ============================
+   MOBILE
+============================ */
+
+@media (max-width: 480px) {
+    body {
+        padding: 45px 15px;
+    }
+
+    .profile-card {
+        padding: 28px 20px;
+    }
 }
