@@ -1,51 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>afrige</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <main class="profile-card">
-        <img src="pfp.png" alt="Profile Picture" class="pfp">
-
-        <h1>afrige</h1>
-
-        <p class="bio">
-            Independent developer focused on software development,
-            web technologies, and building practical digital experiences.
-            Interested in open-source development and clean design.
-        </p>
-
-        <div class="hosting-timer">
-            <span id="timer">00:00:00</span>
-        </div>
-    </main>
-
-    <script>
-        const hostingStart = new Date("2026-11-05T00:00:00").getTime();
-
-        function updateTimer() {
-            const elapsed = Math.max(
-                0,
-                Math.floor((Date.now() - hostingStart) / 1000)
-            );
-
-            const hours = Math.floor(elapsed / 3600);
-            const minutes = Math.floor((elapsed % 3600) / 60);
-            const seconds = elapsed % 60;
-
-            document.getElementById("timer").textContent =
-                String(hours).padStart(2, "0") + ":" +
-                String(minutes).padStart(2, "0") + ":" +
-                String(seconds).padStart(2, "0");
-        }
-
-        updateTimer();
-        setInterval(updateTimer, 1000);
-    </script>
-
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>jei</title><meta name="description" content="jei's page"><meta name="theme-color" content="#000"><meta property="og:title" content="jei"><meta property="og:image" content="pfp.jpg">
+<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="favicon.png"><link rel="apple-touch-icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:#000;color:#fff;font:500 14px/1.6 Montserrat,system-ui,sans-serif;display:grid;justify-items:center;align-content:start;padding:56px 16px 80px;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;background:radial-gradient(600px 400px at 50% 0,rgba(255,255,255,.07),transparent 70%);pointer-events:none}
+main{width:min(540px,100%);display:grid;gap:22px;justify-items:center;text-align:center;position:relative}
+main>*{animation:in .8s cubic-bezier(.22,.8,.24,1) both}main>*:nth-child(2){animation-delay:.1s}main>*:nth-child(3){animation-delay:.2s}main>*:nth-child(4){animation-delay:.3s}main>*:nth-child(5){animation-delay:.4s}main>*:nth-child(6){animation-delay:.5s}main>*:nth-child(7){animation-delay:.6s}
+.pfp{width:150px;height:150px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px #2a2a2a,0 0 40px rgba(255,255,255,.12);animation:in .8s both,float 6s ease-in-out .8s infinite;transition:transform .4s}.pfp:hover{transform:scale(1.06) rotate(-3deg)}
+h1{margin:0;font-size:1.5rem;letter-spacing:.02em}.bio{color:#bdbdbd;max-width:430px;margin:0}
+.stats{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;font-size:12px;color:#cfcfcf;font-weight:600}.stats span{display:inline-flex;gap:7px;align-items:center}.stats svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.card{width:100%;text-align:left;background:#000;border:1px solid #1d1d1d;border-radius:28px;padding:26px 32px;transition:transform .3s,border-color .3s}.card:hover{transform:translateY(-3px);border-color:#383838}
+.card q{display:block;quotes:none;font-weight:600;white-space:pre-line}.card small{display:block;margin-top:8px;color:#777;font-size:11px}
+.count{font:700 2rem/1 Montserrat,sans-serif;color:#f00;letter-spacing:.02em;text-shadow:0 0 24px rgba(255,0,0,.35);font-variant-numeric:tabular-nums}.count small{display:block;font:500 11px Montserrat;color:#777;text-shadow:none;margin-top:8px}
+iframe{width:100%;border:0;border-radius:24px;display:block}
+.links{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}.links a{color:#fff;text-decoration:none;border:1px solid #2a2a2a;border-radius:99px;padding:8px 18px;font-size:13px;transition:.2s}.links a:hover{background:#fff;color:#000}
+:focus-visible{outline:2px solid #fff;outline-offset:3px;border-radius:12px}
+@keyframes in{from{opacity:0;transform:translateY(22px)}}@keyframes float{50%{transform:translateY(-6px)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body><main>
+<img class="pfp" src="pfp.jpg" alt="jei" width="150" height="150"><h1 id="n"></h1><p class="bio" id="b"></p><div class="stats" id="s"></div>
+<div class="card" id="q" hidden><q id="qt"></q><small id="qa"></small></div><div class="count" id="c" hidden></div><div class="links" id="l"></div><iframe id="sp" hidden title="Spotify" allow="encrypted-media" loading="lazy"></iframe>
+</main><script>
+/* ===== EDIT ME ===== */
+const C={name:"jei",
+ bio:"welcome to my page.",                       // your bio text
+ location:"", birthday:"",                         // e.g. "Marseille", "Sep 6" — blank hides it
+ quote:"stay a little weird.", quoteBy:"jei",      // blank quote hides the card
+ countdownTo:"2027-01-01T00:00:00", countdownLabel:"until 2027",   // blank hides it. Counts up if the date has passed
+ spotify:"",                                       // paste a Spotify track/album/playlist link, e.g. https://open.spotify.com/track/...
+ links:[]                                          // e.g. [{t:"GitHub",u:"https://github.com/you"}]
+};
+/* =================== */
+const $=s=>document.querySelector(s),ic={p:'<path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/>',b:'<path d="M20 21v-8H4v8M4 13V9h16v4M12 9V6M12 3v.01"/>'};
+document.title=C.name;$('#n').textContent=C.name;$('#b').textContent=C.bio;$('#b').hidden=!C.bio;
+[[C.location,'p'],[C.birthday,'b']].forEach(([v,k])=>{if(v){const e=document.createElement('span');e.innerHTML=`<svg viewBox="0 0 24 24">${ic[k]}</svg>`;e.append(v);$('#s').append(e)}});
+if(C.quote){$('#q').hidden=false;$('#qt').textContent=C.quote;$('#qa').textContent=C.quoteBy?'- '+C.quoteBy:''}
+if(C.countdownTo){const t=new Date(C.countdownTo),el=$('#c');if(!isNaN(t)){el.hidden=false;const p=n=>String(n).padStart(2,'0');(function u(){const d=Math.abs(t-Date.now())/1e3|0;el.textContent=`${Math.floor(d/86400)}:${p(Math.floor(d%86400/3600))}:${p(Math.floor(d%3600/60))}:${p(d%60)}`;if(C.countdownLabel){const s=document.createElement('small');s.textContent=C.countdownLabel;el.append(s)}setTimeout(u,1000)})()}}
+C.links.forEach(x=>{const a=document.createElement('a');a.textContent=x.t;a.href=x.u;a.target='_blank';a.rel='noopener noreferrer';$('#l').append(a)});
+const m=(C.spotify||'').match(/open\.spotify\.com\/(?:intl-[a-z]+\/)?(track|album|playlist|episode|show)\/([A-Za-z0-9]+)/);
+if(m){const f=$('#sp');f.src=`https://open.spotify.com/embed/${m[1]}/${m[2]}?theme=0`;f.height=m[1]=='track'||m[1]=='episode'?152:352;f.hidden=false}
+</script></body></html>
